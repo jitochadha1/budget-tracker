@@ -1,4 +1,4 @@
-const { response } = require("express");
+// const { response } = require("express");
 
 // create variable for db
 let db;
@@ -35,7 +35,7 @@ function saveBudget(record) {
     const budget = db.transaction(['new_budget'], 'readwrite');
 
     // access the object store for `new_budget`
-    const budgetObjectStore = transaction.objectStore('new_budget');
+    const budgetObjectStore = budget.objectStore('new_budget');
 
     // add record to your store with add method
     budgetObjectStore.add(record);
@@ -43,9 +43,9 @@ function saveBudget(record) {
 
 function uploadBudget() {
     // open transaction with db to read data
-    const transcation = db.transaction(['new_budget'], 'readwrite');
+    const transaction = db.transaction(['new_budget'], 'readwrite');
     // access the object store
-    const budgetObjectStore = transcation.objectStore('new_budget');
+    const budgetObjectStore = transaction.objectStore('new_budget');
     // get all records from store and place into variable
     const getAll = budgetObjectStore.getAll();
 
