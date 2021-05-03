@@ -1,5 +1,3 @@
-// const { response } = require("express");
-
 // create variable for db
 let db;
 
